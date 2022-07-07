@@ -31,7 +31,7 @@ typedef struct
 // Global Variables
 
 // Functions
-// Copia o conte�do da string source para a string dest
+// Copia o conte?do da string source para a string dest
 char strcopy(char source[256], char dest[256])
 {
     sprintf(dest, "%.*s", (int)strcspn(source, "\n"), source);
@@ -40,7 +40,7 @@ char strcopy(char source[256], char dest[256])
 // Converte string para int
 long str2int(char buffer[256], int base)
 {
-    // char *ptr; - Ponteiro que recebe a parte n�o n�merica da string
+    // char *ptr; - Ponteiro que recebe a parte n?o n?merica da string
     long ret = strtol(buffer, NULL, base);
 
     return ret;
@@ -54,7 +54,7 @@ double str2double(char buffer[256])
     return ret;
 }
 
-// Retorna true se buffer[256] for um n�mero
+// Retorna true se buffer[256] for um n?mero
 bool is_number(char buffer[256])
 {
     int op;
@@ -62,7 +62,7 @@ bool is_number(char buffer[256])
     return (sscanf(buffer, "%d", &op) == 1);
 }
 
-// Retorna true se date[] for uma data v�lida
+// Retorna true se date[] for uma data v?lida
 bool is_valid_date(int date[])
 {
     int meses_dias[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -70,7 +70,7 @@ bool is_valid_date(int date[])
     {
         if ((0 < date[0]) && (date[0] <= meses_dias[date[1] - 1]))
         {
-            printf("\nM�s: %d - %d dias", date[1], meses_dias[date[1] - 1]);
+            printf("\nM?s: %d - %d dias", date[1], meses_dias[date[1] - 1]);
             return true;
         }
     }
@@ -103,12 +103,12 @@ int *get_date_array(char string[256])
 }
 
 // Retorna false caso e imprime na tela caso buffer[256]
-// contenha caracteres n�o num�ricos
+// contenha caracteres n?o num?ricos
 bool is_valid_option(char buffer[256])
 {
     if (!is_number(buffer))
     {
-        printf(" Op��o inv�lida! Apenas n�meros s�o aceitos.");
+        printf(" Op??o inv?lida! Apenas n?meros s?o aceitos.");
         getchar();
         return false;
     }
@@ -116,7 +116,7 @@ bool is_valid_option(char buffer[256])
 }
 
 // Imprime os dados do projeto a ser cadastrado
-// e requisita uma confirma��o para a conclus�o da opera��o
+// e requisita uma confirma??o para a conclus?o da opera??o
 int confirmar_cadastro(Projeto projeto)
 {
     char buffer[256];
@@ -126,14 +126,14 @@ int confirmar_cadastro(Projeto projeto)
     imprimir_projeto(projeto, 0);
     while (op != 0 && op != 1)
     {
-        printf("\n Confirmar cadastro (1. Sim; 0. N�o): ");
+        printf("\n Confirmar cadastro (1. Sim; 0. N?o): ");
         fgets(buffer, sizeof buffer, stdin);
         if (is_valid_option(buffer))
         {
             op = str2int(buffer, 10);
             if (!(0 <= op <= 1))
             {
-                printf("ERRO: Op��o inv�lida! Escolha uma das op��es dispon�veis,");
+                printf("ERRO: Op??o inv?lida! Escolha uma das op??es dispon?veis,");
                 getchar();
             }
         }
@@ -146,14 +146,14 @@ void imprimir_projeto(Projeto projeto, int num)
 {
     if (num)
         printf("\n %d.", num);
-    printf("\n   C�digo: %d", projeto.codigo);
-    printf("\n   T�tulo: %s", projeto.titulo);
-    printf("\n   Descri��o: %s", projeto.descricao);
+    printf("\n   C?digo: %d", projeto.codigo);
+    printf("\n   T?tulo: %s", projeto.titulo);
+    printf("\n   Descri??o: %s", projeto.descricao);
     printf("\n   Data: %d/%d/%d", projeto.data[0], projeto.data[1], projeto.data[2]);
     printf("\n   Status: %d", projeto.status);
-    printf("\n   Or�amento: R$%.2f", projeto.orcamento);
-    printf("\n   Gerente respons�vel: %s", projeto.gerente_resp);
-    printf("\n   N� de funcion�rios trabalhando no projeto: %d\n", projeto.num_funcionarios);
+    printf("\n   Or?amento: R$%.2f", projeto.orcamento);
+    printf("\n   Gerente respons?vel: %s", projeto.gerente_resp);
+    printf("\n   N? de funcion?rios trabalhando no projeto: %d\n", projeto.num_funcionarios);
 }
 
 // Imprime os dados de todos os projetos cadastrados
@@ -169,8 +169,8 @@ int listar_projetos(ProjetosClass projetos)
     return c;
 }
 
-// Recebe um par�metro do tipo int e imprime todos os
-// projetos cadastrados com status igual ao par�metro
+// Recebe um par?metro do tipo int e imprime todos os
+// projetos cadastrados com status igual ao par?metro
 int listar_projetos_status(ProjetosClass projetos, unsigned int status)
 {
     unsigned int c = 0;
@@ -187,8 +187,8 @@ int listar_projetos_status(ProjetosClass projetos, unsigned int status)
     return c;
 }
 
-// Recebe um par�metro do tipo int e imprime todos os
-// projetos cadastrados com ano igual ao par�metro
+// Recebe um par?metro do tipo int e imprime todos os
+// projetos cadastrados com ano igual ao par?metro
 int listar_projetos_ano(ProjetosClass projetos, int ano)
 {
     unsigned int c = 0;
@@ -206,14 +206,14 @@ int listar_projetos_ano(ProjetosClass projetos, int ano)
 }
 
 // Procedures
-// Cabe�alho do programa
+// Cabe?alho do programa
 void cabecalho()
 {
     printf("|-----------------------------------------|\n");
     printf("|                                         |\n");
-    printf("|          SHM Gest�o de Projetos         |\n");
+    printf("|          SHM Gest?o de Projetos         |\n");
     printf("|                                         |\n");
-    printf("|      S�rgio H. Melges Carlos Pontes     |\n");
+    printf("|      S?rgio H. Melges Carlos Pontes     |\n");
     printf("|                                         |\n");
     printf("|                      RA: 20128715-5     |\n");
     printf("|                                         |\n");
@@ -236,11 +236,11 @@ int cadastro_projetos(ProjetosClass *projetos)
 
         printf(" Insira os dados do projeto.");
 
-        printf("\n T�tulo: ");
+        printf("\n T?tulo: ");
         fgets(buffer, sizeof buffer, stdin);
         strcopy(buffer, novo_projeto.titulo);
 
-        printf(" Descri��o: ");
+        printf(" Descri??o: ");
         fgets(buffer, sizeof buffer, stdin);
         strcopy(buffer, novo_projeto.descricao);
 
@@ -258,7 +258,7 @@ int cadastro_projetos(ProjetosClass *projetos)
             for (int i = 0; i < 3; i++)
                 novo_projeto.data[i] = date[i];
 
-        printf(" Status (1. A Fazer; 2. Fazendo; 3. Conclu�do): ");
+        printf(" Status (1. A Fazer; 2. Fazendo; 3. Conclu?do): ");
         fgets(buffer, sizeof buffer, stdin);
 
         if (!is_number(buffer) || !(0 < str2int(buffer, 10) <= 3))
@@ -266,7 +266,7 @@ int cadastro_projetos(ProjetosClass *projetos)
         else
             novo_projeto.status = str2int(buffer, 10);
 
-        printf(" Or�amento: ");
+        printf(" Or?amento: ");
         fgets(buffer, sizeof buffer, stdin);
 
         if (!is_number(buffer) && (str2double(buffer) >= 0))
@@ -274,11 +274,11 @@ int cadastro_projetos(ProjetosClass *projetos)
         else
             novo_projeto.orcamento = str2double(buffer);
 
-        printf(" Gerente respons�vel: ");
+        printf(" Gerente respons?vel: ");
         fgets(buffer, sizeof buffer, stdin);
         strcopy(buffer, novo_projeto.gerente_resp);
 
-        printf(" N� de funcion�rios trabalhando no projeto: ");
+        printf(" N? de funcion?rios trabalhando no projeto: ");
         fgets(buffer, sizeof buffer, stdin);
 
         if (!is_number(buffer) || !(0 < str2int(buffer, 10)))
@@ -289,7 +289,7 @@ int cadastro_projetos(ProjetosClass *projetos)
         novo_projeto.codigo = projetos->ultimo_codigo + 1;
         if (confirmar_cadastro(novo_projeto) == 0)
         {
-            printf(" Opera��o cancelada.\n");
+            printf(" Opera??o cancelada.\n");
             errors = -1;
         }
         if (!errors)
@@ -300,7 +300,7 @@ int cadastro_projetos(ProjetosClass *projetos)
                 projetos->projetos[projetos->num_projetos] = novo_projeto;
                 projetos->num_projetos += 1;
 
-                printf(" Opera��o finalizada.\n");
+                printf(" Opera??o finalizada.\n");
             }
         }
         //getchar();
@@ -309,7 +309,7 @@ int cadastro_projetos(ProjetosClass *projetos)
     return errors;
 }
 
-// Menu de impress�es
+// Menu de impress?es
 void menu_impressoes(ProjetosClass projetos)
 {
     unsigned int op = 0;
@@ -320,19 +320,19 @@ void menu_impressoes(ProjetosClass projetos)
     {
         system("cls");
         printf("|-----------------------------------------|\n");
-        printf("|          Rotinas de Impress�o           |\n");
+        printf("|          Rotinas de Impress?o           |\n");
         printf("|.........................................|\n");
         printf("|                                         |\n");
         printf("| Imprimir:                               |\n");
         printf("| 1. Todos os projetos                    |\n");
         printf("| 2. Projetos com o Status: A Fazer       |\n");
         printf("| 3. Projetos com o Status: Fazendo       |\n");
-        printf("| 4. Projetos com o Status: Conclu�do     |\n");
+        printf("| 4. Projetos com o Status: Conclu?do     |\n");
         printf("| 5. Projeto de determinado ano           |\n");
         printf("|                                         |\n");
         printf("| 0. Voltar                               |\n");
         printf("|-----------------------------------------|\n");
-        printf(" Escolha a fun��o desejada: ");
+        printf(" Escolha a fun??o desejada: ");
 
         fgets(buffer, sizeof buffer, stdin);
 
@@ -378,7 +378,7 @@ void menu_impressoes(ProjetosClass projetos)
             break;
 
         default:
-            printf(" ERRO: Op��o inv�lida! Escolha uma das op��es dispon�veis,");
+            printf(" ERRO: Op??o inv?lida! Escolha uma das op??es dispon?veis,");
             break;
         }
         getchar();
@@ -409,7 +409,7 @@ void menu_principal()
         printf("|                                         |\n");
         printf("| 0. Sair                                 |\n");
         printf("|-----------------------------------------|\n");
-        printf(" Escolha a op��o desejada: ");
+        printf(" Escolha a op??o desejada: ");
 
         fgets(buffer, sizeof buffer, stdin);
 
@@ -426,7 +426,7 @@ void menu_principal()
         case 1:
             if (projetos.num_projetos >= max_projetos)
             {
-                printf("ERRO: Limite de projetos cadastrados atingido! N�o foi poss�vel finalizar a opera��o.");
+                printf("ERRO: Limite de projetos cadastrados atingido! N?o foi poss?vel finalizar a opera??o.");
                 getchar();
                 continue;
             }
@@ -437,14 +437,14 @@ void menu_principal()
             }
             else if (result >= 1)
             {
-                printf("\n O projeto n�o foi cadastrado.");
+                printf("\n O projeto n?o foi cadastrado.");
             }
             break;
 
         case 2:
             if (projetos.num_projetos == 0)
             {
-                printf("\n N�o existem projetos cadastrados!\n Cadastre um projeto para come�ar a utilizar o sistema.");
+                printf("\n N?o existem projetos cadastrados!\n Cadastre um projeto para come?ar a utilizar o sistema.");
                 getchar();
                 continue;
             }
@@ -453,14 +453,14 @@ void menu_principal()
             break;
 
         default:
-            printf(" Op��o inv�lida! Escolha uma das op��es dispon�veis,");
+            printf(" Op??o inv?lida! Escolha uma das op??es dispon?veis,");
             break;
         }
         getchar();
     } while (op != 0);
 }
 
-// Fun��o main
+// Fun??o main
 int main(void)
 {
     setlocale(LC_ALL, "Portuguese");
